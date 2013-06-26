@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Its a game!</title>
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.3.1/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="lib/jasmine-1.3.1/jasmine.css">
+    <script type="text/javascript" src="lib/jasmine-1.3.1/jasmine.js"></script>
+    <script type="text/javascript" src="lib/jasmine-1.3.1/jasmine-html.js"></script>
+    <script type="text/javascript" src="lib/jasmine-jquery.js"></script>
+    <script type="text/javascript" src="lib/jquery-2.0.2.js"></script>
+
+    <!-- include source files here... -->
+    <script type="text/javascript" src="game.js"></script>
+
+    <!-- include spec files here... -->
+    <script type="text/javascript" src="spec/boxSpec.js"></script>
+
+    <script type="text/javascript">
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var htmlReporter = new jasmine.HtmlReporter();
+
+      jasmineEnv.addReporter(htmlReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+    };
+
+    var currentWindowOnload = window.onload;
+
+    window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+      }
+      execJasmine();
+  };
+
+  function execJasmine() {
+    jasmineEnv.execute();
+}
+
+})();
+</script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="stylesheet.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+    	<div class ="row">
+    		<div class="span3 text-center">
+    			<h1 class="bluescore">0</h1>
+    		</div>
+    		<div class="span1">
+    			<a href="#" class="btn btn-large btn-primary wipe">Wipe</a>
+    		</div>
+		<div class="span3">
+			<h1 class="text-center">Boxageddon</h1>
+		</div>
+		<div class="span1">
+			<a href="#" class="btn btn-large btn-primary reset">Reset</a>
+		</div>
+    		<div class="span3 text-center">
+    			<h1 class="redscore">0</h1>
+    		</div>
+    	</div>
+    </div>
+    <table>
+    	<tr class="default">
+    		<td data-row="1" data-column="1"></td>
+    		<td data-row="1" data-column="2"></td>
+    		<td data-row="1" data-column="3"></td>
+    		<td data-row="1" data-column="4"></td>
+    		<td data-row="1" data-column="5"></td>
+    	</tr>
+    	<tr class="default">
+    		<td data-row="2" data-column="1"></td>
+    		<td data-row="2" data-column="2"></td>
+    		<td data-row="2" data-column="3"></td>
+    		<td data-row="2" data-column="4"></td>
+    		<td data-row="2" data-column="5"></td>
+    	</tr>
+    	<tr class="default">
+    		<td data-row="3" data-column="1"></td>
+    		<td data-row="3" data-column="2"></td>
+    		<td data-row="3" data-column="3"></td>
+    		<td data-row="3" data-column="4"></td>
+    		<td data-row="3" data-column="5"></td>
+    	</tr>
+    	<tr class="default">
+    		<td data-row="4" data-column="1"></td>
+    		<td data-row="4" data-column="2"></td>
+    		<td data-row="4" data-column="3"></td>
+    		<td data-row="4" data-column="4"></td>
+    		<td data-row="4" data-column="5"></td>
+    	</tr>
+    	<tr class="default">
+    		<td data-row="5" data-column="1"></td>
+    		<td data-row="5" data-column="2"></td>
+    		<td data-row="5" data-column="3"></td>
+    		<td data-row="5" data-column="4"></td>
+    		<td data-row="5" data-column="5"></td>
+    	</tr>
+    </table>
+</body>
+</html>
